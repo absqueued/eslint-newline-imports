@@ -1,0 +1,36 @@
+{
+  "name": "@absqueued/eslint-newline-imports",
+  "version": "1.0.0",
+  "description": "ESLint rule to enforce a newline for each property in a multiline import statement",
+  "main": "rules/eslint-newline-imports.js",
+  "scripts": {
+    "test": "node tests/eslint-newline-imports.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YourGithubUsername/eslint-newline-imports.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "formatter",
+    "vscode",
+    "vscode-eslint",
+    "eslint-plugin-vscode",
+    "prettier"
+  ],
+  "author": {
+    "name": "Shekhar K. Sharma",
+    "url": "https://twitter.com/absqueued"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YourGithubUsername/eslint-newline-imports/issues"
+  },
+  "homepage": "https://github.com/YourGithubUsername/eslint-newline-imports#readme",
+  "devDependencies": {
+    "@eslint/eslintrc": "^2.1.1",
+    "eslint": "^8.46.0"
+  },
+  "private": false
+}
