@@ -1,25 +1,49 @@
 module.exports = {
+    meta: {
+        type: "layout",
+        docs: {
+            description: "enforce a newline for each property in a multiline import statement",
+            category: "Stylistic Issues",
+            recommended: false,
+        },
+        schema: [
+            {
+                "type": "object",
+                "properties": {
+                    "maxPropertiesOnSingleLine": {
+                        "type": "integer",
+                        "minimum": 1
+                    }
+                },
+                "additionalProperties": false
+            }
+        ],
+    },
     create: function (context) {
+        const maxPropertiesOnSingleLine = context.options[0]?.maxPropertiesOnSingleLine || 1;
+
         return {
-            // Check each import declaration in the file
             ImportDeclaration: function (node) {
                 let prevLineNum = null;
+                let propertiesOnSingleLine = 0;
 
-                // Iterate through each property (specifier) being imported
                 for (let i = 0; i < node.specifiers.length; i++) {
                     const specifier = node.specifiers[i];
                     const lineNum = specifier.loc.start.line;
 
-                    // If the current property is on the same line as the previous one, report an error
                     if (prevLineNum !== null && lineNum === prevLineNum) {
-                        context.report({
-                            node: node,
-                            message: 'Each imported property should be on a new line',
-                        });
-                        break;
+                        propertiesOnSingleLine++;
+                        if (propertiesOnSingleLine > maxPropertiesOnSingleLine) {
+                            context.report({
+                                node: node,
+                                message: 'Each imported property should be on a new line',
+                            });
+                            break;
+                        }
+                    } else {
+                        propertiesOnSingleLine = 1;
                     }
 
-                    // Remember the line number of the current property to compare with the next one
                     prevLineNum = lineNum;
                 }
             },

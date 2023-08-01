@@ -1,8 +1,6 @@
-// Import necessary modules
 const RuleTester = require('eslint').RuleTester;
 const rule = require('../rules/eslint-newline-imports');
 
-// Initialize RuleTester
 const ruleTester = new RuleTester({
     parserOptions: {
         ecmaVersion: 6,
@@ -10,10 +8,18 @@ const ruleTester = new RuleTester({
     },
 });
 
-// Run tests
 ruleTester.run('eslint-newline-imports', rule, {
     valid: [
-        `import { useState } from 'react';`,
+        {
+            code: `import { useState, useEffect } from 'react';`,
+            options: [{ "maxPropertiesOnSingleLine": 2 }],
+        },
+        {
+            code: `import React, {
+                useState, useEffect, FC,
+            } from 'react';`,
+            options: [{ "maxPropertiesOnSingleLine": 3 }],
+        },
         `import {
             useState,
             useEffect
@@ -26,13 +32,15 @@ ruleTester.run('eslint-newline-imports', rule, {
     ],
     invalid: [
         {
-            code: `import { useState, useEffect } from 'react';`,
+            code: `import { useState, useEffect, useRef } from 'react';`,
+            options: [{ "maxPropertiesOnSingleLine": 2 }],
             errors: [{ message: 'Each imported property should be on a new line' }],
         },
         {
             code: `import React, {
-                useState, useEffect, FC,
+                useState, useEffect, FC, useRef,
             } from 'react';`,
+            options: [{ "maxPropertiesOnSingleLine": 3 }],
             errors: [{ message: 'Each imported property should be on a new line' }],
         },
     ],

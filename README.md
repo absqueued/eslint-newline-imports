@@ -40,9 +40,9 @@ Then configure the rules you want to use under the rules section.
 
 ```
 {
-    "rules": {
-        "@absqueued/eslint-newline-imports/newline-import": 2
-    }
+  "rules": {
+    "@absqueued/eslint-newline-imports": ["error", {"maxPropertiesOnSingleLine": 2}]
+  }
 }
 
 ```
