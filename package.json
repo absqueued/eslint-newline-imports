@@ -1,6 +1,6 @@
 {
   "name": "@absqueued/eslint-newline-imports",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "ESLint rule to enforce a newline for each property in a multiline import statement",
   "main": "rules/eslint-newline-imports.js",
   "scripts": {
