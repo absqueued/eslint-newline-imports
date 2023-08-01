@@ -7,5 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "MIT",
+  "dependencies": {
+    "@absqueued/eslint-plugin-eslint-newline-imports": "../",
+    "eslint": "^8.46.0"
+  }
 }
