@@ -8,6 +8,9 @@
   "parserOptions": {
     "ecmaVersion": "latest"
   },
+  "plugins": [
+    "@absqueued/newline-imports"
+  ],
   "rules": {
     "indent": [
       "error",
@@ -24,6 +27,12 @@
     "semi": [
       "error",
       "always"
+    ],
+    "@absqueued/newline-imports/newline-imports": [
+      "error",
+      {
+        "maxPropertiesOnSingleLine": 1
+      }
     ]
   }
 }

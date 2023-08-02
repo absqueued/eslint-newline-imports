@@ -1,5 +1,5 @@
 const RuleTester = require('eslint').RuleTester;
-const rule = require('../rules/eslint-newline-imports');
+const rule = require('../rules/newline-imports');
 
 const ruleTester = new RuleTester({
     parserOptions: {
@@ -8,7 +8,7 @@ const ruleTester = new RuleTester({
     },
 });
 
-ruleTester.run('eslint-newline-imports', rule, {
+ruleTester.run('newline-imports', rule, {
     valid: [
         {
             code: `import { useState, useEffect } from 'react';`,

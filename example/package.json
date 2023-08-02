@@ -9,7 +9,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@absqueued/eslint-plugin-eslint-newline-imports": "../",
     "eslint": "^8.46.0"
   }
 }
